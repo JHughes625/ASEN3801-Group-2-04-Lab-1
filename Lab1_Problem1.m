@@ -36,6 +36,33 @@ z1 = answer1.y(4,:);
 figure(1)
 hold on
 plot(t1,w1,t1,x1,t1,y1,t1,z1)
+hold off
+
+figure(2)
+
+subplot(4, 1, 1)
+plot(t1,w1)
+title('w v. t')
+xlabel('t')
+ylabel('w')
+
+subplot(4, 1, 2)
+plot(t1,x1)
+xlabel('t')
+ylabel('x')
+title('x v. t')
+
+subplot(4, 1, 3)
+plot(t1,y1)
+xlabel('t')
+ylabel('y')
+title('y v. t')
+
+subplot(4, 1, 4)
+plot(t1,z1)
+xlabel('t')
+ylabel('z')
+title('z v. t')
 
 clear options1
 
