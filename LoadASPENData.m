@@ -12,7 +12,7 @@ data = rmmissing(data);
 data = data(2:(max(size(data))),:);
 
 % Time Vector Processing
-t_vec = data(:,1)./100; % [Sec] Frame number divided by 100Hz
+t_vec = table2array(data(:,1)./100); % [Sec] Frame number divided by 100Hz
 
 pos_av_aspen = table2array(data(:,12:14)).';
 att_av_aspen = table2array(data(:,9:11)).';
@@ -28,9 +28,9 @@ att_tar_aspen = table2array(data(:,3:5)).';
 %         pos_av_class, att_av_class, pos_tar_class, att_tar_class
 
 
-av_pos_inert = pos_av_class.';
-av_att = att_av_class.';
-tar_pos_inert = pos_tar_class.';
-tar_att = att_tar_class.';
+av_pos_inert = pos_av_class.'; % [mm] Inertial position of Vehicle
+av_att = att_av_class.'; % [Rad] Inertial euler angles of Vehicle
+tar_pos_inert = pos_tar_class.'; % [mm] Inertial position of Target
+tar_att = att_tar_class.'; % [Rad] Inertial euler angles of Target
 
 end
