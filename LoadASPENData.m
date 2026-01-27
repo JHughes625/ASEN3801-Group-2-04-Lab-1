@@ -8,10 +8,11 @@ function [t_vec, av_pos_inert, av_att, tar_pos_inert, tar_att] = LoadASPENData(f
 % Data Input and Conversion
 %filename = "3801_Sec001_Test1.csv";
 data = readtable(filename,'HeaderLines',3,'ReadVariableNames',true);
+data = rmmissing(data);
 data = data(2:(max(size(data))),:);
 
 % Time Vector Processing
-t_vec = data(:,1)/100; % [Sec] Frame number divided by 100Hz
+t_vec = data(:,1)./100; % [Sec] Frame number divided by 100Hz
 
 pos_av_aspen = table2array(data(:,12:14)).';
 att_av_aspen = table2array(data(:,9:11)).';
